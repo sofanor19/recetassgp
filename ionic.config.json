@@ -1,0 +1,7 @@
+{
+  "name": "recetassgp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
