@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,12 +8,18 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
   standalone: false,
 })
 export class LoginPage implements OnInit {
- LoginForm: FormGroup;
+ loginForm: FormGroup;
  errormessage: any;
+ formErrors = {
+  email: [
+    { type: 'required', message:'El email es obligatorio' },
+    { type: 'email', message:'El email no es valido' }
+  ]
+}
   constructor(
     private formBuilder: FormBuilder
   ) {
-    this.LoginForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.email
@@ -26,6 +33,10 @@ export class LoginPage implements OnInit {
    
 
   ngOnInit() {
+  }
+
+  loginUser (credentials:any){
+    console.log(credentials,"credenciales de login")
   }
 
 }
