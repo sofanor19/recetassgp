@@ -9,15 +9,12 @@ export class AuthService {
   login(credentials: any) {
     console.log(credentials, "desde el servicio");
     return new Promise((accept, reject) => {
-      if (credentials.email === 'sgarciap@gmail.com') {
-        if (credentials.password === 's1234') {
+      if (credentials.email === 'sgarciap@gmail.com' && credentials.password === 's123456') {
           accept('Login correcto');
         } else {
           reject('Contraseña incorrecta');
         }
-      } else {
-        reject('Email incorrecto');
-      }
+      
     });
   }
 }

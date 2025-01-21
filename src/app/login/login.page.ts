@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     { type: 'required', message:'La contraseña es obligatoria'},
     { type: 'password', message:'La contraseña es de minimo 6 caracteres'}
   ]
-}
+};
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
