@@ -41,4 +41,38 @@ export class AuthService {
       )
     });
   }
+  register(data: any){
+    return new Promise((accept, reject) => {
+      let params = {
+        "user": {
+          "email": data.email,
+          "password": data.password,
+          "password_confirmation": data.password_confirmation,
+          "name": data.name,
+          "last_name": data.last_name,
+          "username": data.username
+        }
+      }
+      this.http.post(`${this.urlServer}/signup`, params, this.httpHeaders).subscribe(
+        (data: any)=>{
+          console.log(data);
+          if (data.status == 'OK'){
+            accept(data);
+          }else{
+            reject(data.errors);
+          }
+        },
+        (error) => {
+          console.log(error);
+          if (error.status == 422){
+            reject(error.error.errors);
+          } else if (error.status == 500){
+            reject('Error Porfavor intenta mas tarde');
+          }else{
+            reject('Error al intentar registrarse');
+          }
+        }
+      )
+    });
+  }
 }
