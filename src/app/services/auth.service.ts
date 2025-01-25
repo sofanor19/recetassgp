@@ -11,7 +11,6 @@ export class AuthService {
     private http: HttpClient
   ) { }
   login(credentials: any) {
-    
     return new Promise((accept, reject) => {
       let params = {
         "user": { 
