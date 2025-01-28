@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,11 +9,14 @@
     <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
   </figure>
  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+  <ion-item>
+    <ion-icon name="mail"></ion-icon>
+    <ion-input label="Email" labelPlacement="floating" placeholder="example@gmail.com" formControlName="email">
+    </ion-input>
+  </ion-item>
    <ion-item>
-     <ion-input label="Email" labelPlacement="floating" placeholder="example@email.com" formControlName="email"></ion-input>
-   </ion-item>
-   <ion-item>
-     <ion-input type="password" label="Contraseña" placeholder="minimo 6 caracteres" formControlName="password"></ion-input>
+    <ion-icon name="lock-closed"></ion-icon>
+     <ion-input type="password" label="Password" placeholder="minimo 6 caracteres" formControlName="password"></ion-input>
      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
    </ion-item>
    <div>
@@ -30,6 +33,8 @@
        </ion-label>
      </ng-container>
    </div>
+   <br>
+   
    <ion-button
      type="submit"
      [disabled]="!loginForm.valid"
@@ -39,5 +44,5 @@
 
  <p>{{errorMessage}}</p>
 
- <ion-button expand="block" fill="clear" routerLink="/register">Register</ion-button>
+ <ion-button expand="block" fill="clear" routerLink="/register">Registrarse</ion-button>
 </ion-content>

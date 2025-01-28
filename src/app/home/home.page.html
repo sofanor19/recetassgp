@@ -1,5 +1,6 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Home</ion-title>
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -24,4 +25,9 @@
             </ion-card-content>
         </ion-card>
     </ion-lista>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="addPost()">
+         <ion-icon name ="add"></ion-icon>
+      </ion-fab-button>
+</ion-fab>
 </ion-content>

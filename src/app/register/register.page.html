@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,6 +10,7 @@
 <ion-content>
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
     <ion-item>
+      <ion-icon name="mail"></ion-icon>
       <ion-input label="Correo Electronico" labelPlacement="floating" placeholder="example@gmail.com" formControlName="email">
       </ion-input>
     </ion-item>
@@ -17,6 +21,7 @@
 
 
     <ion-item>
+      <ion-icon name="person-sharp"></ion-icon>
       <ion-input label="Nombre" labelPlacement="floating" placeholder="Name" formControlName="name">
       </ion-input>
     </ion-item>
@@ -26,6 +31,7 @@
     </ng-container>
 
     <ion-item>
+      <ion-icon name="people"></ion-icon>
       <ion-input label="Apellido" labelPlacement="floating" placeholder="Last Name" formControlName="lastname">
       </ion-input>
     </ion-item>
@@ -36,6 +42,7 @@
 
 
     <ion-item>
+      <ion-icon name="person-circle"></ion-icon>
       <ion-input label="Nombre de usuario" labelPlacement="floating" placeholder="Last Name" formControlName="username">
       </ion-input>
     </ion-item>
@@ -45,6 +52,7 @@
     </ng-container>
 
     <ion-item>
+      <ion-icon name="lock-closed"></ion-icon>
       <ion-input label="Contraseña" type="password" labelPlacement="floating" placeholder="Password" formControlName="password">
       </ion-input>
     </ion-item>
@@ -54,6 +62,7 @@
     </ng-container>
 
     <ion-item>
+      <ion-icon name="lock-open"></ion-icon>
       <ion-input label="Confirmación de Contraseña" type="password" labelPlacement="floating" placeholder="Password Confirmation" formControlName="passwordConfirmation">
       </ion-input>
     </ion-item>
