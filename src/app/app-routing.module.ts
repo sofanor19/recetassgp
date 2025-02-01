@@ -6,7 +6,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'menu/home',
+    redirectTo: 'intro',
     pathMatch: 'full'
   },
   {
@@ -28,7 +28,9 @@ const routes: Routes = [
   {
     path: 'add-post-modal',
     loadChildren: () => import('./add-post-modal/add-post-modal.module').then( m => m.AddPostModalPageModule)
-  }
+  },
+ 
+
 ];
 
 @NgModule({

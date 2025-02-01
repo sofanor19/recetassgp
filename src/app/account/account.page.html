@@ -9,12 +9,29 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div class="profile-header" style="text-align: center; margin-bottom: 20px;">
   <ion-title>{{user_data.name}} {{user_data.last_name}}</ion-title>
-  <ion-avatar (click)="presentPhotoOptions()">
+  <ion-avatar (click)="presentPhotoOptions()"style="width: 120px; height: 120px; margin: 0 auto;">
     <img [src]="user_data.image ? user_data.image : 'assets/icon/favicon.png'"/>
   </ion-avatar>
-  <p>usuario: {{user_data.username}}</p>
-  <p>Seguidores: {{user_data.followers.length}}</p>
-  <p>Siguiendo: {{user_data.followees.length}}</p>
+  <h2 style="margin-top: 10px;">{{user_data.name}} {{user_data.last_name}}</h2>
+  <p style="font-style: italic; color: #888;">{{user_data.username}}</p> 
+</div>
+
+  <div class="stats" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+    <div class="stat-item" style="text-align: center;">
+      <h3>{{user_data.followers.length}}</h3>
+      <p>Seguidores</p>
+    </div>
+    <div class="stat-item" style="text-align: center;">
+      <h3>{{user_data.followees.length}}</h3>
+      <p>Siguiendo</p>
+    </div>
+  </div>
+
+  
+  <div class="user-bio" style="text-align: center; margin-top: 20px;">
+    <ion-button  expand="block" fill="outline" color="primary" >Editar Perfil</ion-button>
+  </div>
 </ion-content>

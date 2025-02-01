@@ -57,7 +57,7 @@ export class RegisterPage implements OnInit {
         ])),
         name: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.minLength(4)
+          Validators.minLength(3)
         ])),
         lastname: new FormControl('', Validators.compose([
           Validators.required,
@@ -94,7 +94,7 @@ export class RegisterPage implements OnInit {
       this.navCtrl.navigateForward('/login');
     }).catch(err => {
       console.log(err);
-      this.errorMessage = err;
+      this.errorMessage = `Falta llenar campos`;
     });
   }
 

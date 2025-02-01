@@ -4,6 +4,8 @@ import { Storage } from '@ionic/storage-angular';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { AlertController } from '@ionic/angular';
+
+
 defineCustomElements(window);
 
 @Component({
@@ -24,7 +26,9 @@ export class AccountPage implements OnInit {
   constructor(
     private userService: UserService,
     private storage: Storage,
-    public  alertController: AlertController
+    public  alertController: AlertController,
+    
+   
   ) { }
 
   async ngOnInit() {
@@ -92,4 +96,5 @@ export class AccountPage implements OnInit {
     });
     await alert.present();
   }
+
 }
