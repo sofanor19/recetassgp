@@ -36,7 +36,7 @@ export class PostService {
       this.http.post(`${this.urlServer}/posts`, post_data, this.httpHeaders).subscribe(
         (data: any)=>{
             accept(data);
-            this.postCreated.emit(data);
+            
         },
         (error) => {
           console.log(error, 'error');

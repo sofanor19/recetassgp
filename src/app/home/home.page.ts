@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { ModalController } from '@ionic/angular';
 import { AddPostModalPage } from '../add-post-modal/add-post-modal.page';
@@ -9,7 +9,7 @@ import { AddPostModalPage } from '../add-post-modal/add-post-modal.page';
   styleUrls: ['home.page.scss'],
   standalone: false,
 })
-export class HomePage {
+export class HomePage implements OnInit {
   posts: any [] = [];
   page: number = 1;
   limit: number = 10;
@@ -21,13 +21,13 @@ export class HomePage {
     private modalController: ModalController
   ) {}
 
-    ngOnInit(){
+  ngOnInit(){
       console.log('Init Home');
       this.loadPosts();
       this.postService.postCreated.subscribe((newPost: any)=>{
         this.posts.unshift(newPost);
       })
-  }
+    }
   async addPost(){
     console.log('Add Post');
     const modal = await this.modalController.create({

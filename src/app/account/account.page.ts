@@ -3,7 +3,8 @@ import { UserService } from '../services/user.service';
 import { Storage } from '@ionic/storage-angular';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { EditAccountModalPage } from '../edit-account-modal/edit-account-modal.page';
 
 
 defineCustomElements(window);
@@ -27,7 +28,7 @@ export class AccountPage implements OnInit {
     private userService: UserService,
     private storage: Storage,
     public  alertController: AlertController,
-    
+    private modalController: ModalController
    
   ) { }
 
@@ -43,6 +44,15 @@ export class AccountPage implements OnInit {
     ).catch(
       (error) => {
         console.log(error);
+      });
+
+      this.userService.userUpdated.subscribe((user: any)=>{
+          let userdUpdated = {...this.user_data,  name: user.name,  last_name :user.last_name, image: user.image};
+
+        this.user_data = userdUpdated;
+  
+        this.storage.set("user", userdUpdated)
+        this.modalController.dismiss();
       });
   }
   
@@ -96,5 +106,14 @@ export class AccountPage implements OnInit {
     });
     await alert.present();
   }
+
+  async updateAccount(){
+    const modal = await this.modalController.create({
+      component: EditAccountModalPage,
+      componentProps:{}
+    });
+ return await modal.present();
+}
+
 
 }

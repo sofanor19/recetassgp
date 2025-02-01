@@ -85,9 +85,7 @@ export class SearchUsersPage implements OnInit {
       });
   }  
 
-  unfollow(user_id: any){
-    console.log('unfollow', user_id);
-  }
+
   toggleFollow(user: any){
     if (user.is_following){
       this.unfollow(user.id);
@@ -96,4 +94,26 @@ export class SearchUsersPage implements OnInit {
     }
   }
 
+
+  unfollow(followee_id: any){
+   
+    const user_id = this.current_user.id;
+    this.userService.unfollowUser(user_id, followee_id).then(
+      (data: any) => {
+        console.log(data);
+        this.users = this.users.map((user: any) => {
+          if (user.id == followee_id){
+            return {
+              ...user,
+              is_following: false
+            }
+          }
+          return user;
+        });
+      }
+    ).catch(
+      (error) => {
+        console.log(error);
+      });
+  }
 }

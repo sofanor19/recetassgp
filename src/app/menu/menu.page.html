@@ -11,11 +11,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-menu-toggle>
-      <ion-item (click)="log_out()">
-        <ion-icon name="log-out-outline"></ion-icon> Salir
-      </ion-item>
-    </ion-menu-toggle>
+      
     <ion-menu-toggle>
       <ion-item routerLink="home">
           <ion-icon name="home-outline"></ion-icon>Home
@@ -31,6 +27,12 @@
       <ion-item routerLink="search-users">
         <ion-icon name="people-circle-outline"></ion-icon>Usuario
      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item (click)="log_out()">
+        <ion-icon name="log-out-outline"></ion-icon> Salir
+      </ion-item>
     </ion-menu-toggle>
     
     </ion-content>
